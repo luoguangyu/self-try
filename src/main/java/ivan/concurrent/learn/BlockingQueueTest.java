@@ -31,11 +31,13 @@ public class BlockingQueueTest
 
 		// 执行10s
 		Thread.sleep(10 * 1000);
+
+		// 停止所有生产者
 		producer1.stop();
 		producer2.stop();
 		producer3.stop();
 
-		// 让消费者再执行2秒
+		// 让消费者再执行2秒，模拟其超时退出
 		Thread.sleep(2000);
 
 		service.shutdown();
